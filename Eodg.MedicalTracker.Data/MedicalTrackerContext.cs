@@ -5,6 +5,12 @@ namespace Eodg.MedicalTracker.Data
 {
     public class MedicalTrackerContext : DbContext
     {
+        public MedicalTrackerContext(DbContextOptions<MedicalTrackerContext> options)
+            : base(options)
+        {
+
+        }
+
         public DbSet<DosageOccurrence> DosageOccurrences { get; set; }
         public DbSet<DoseMeasurement> DoseMeasurements { get; set; }
         public DbSet<Medication> Medications { get; set; }
