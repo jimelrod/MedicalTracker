@@ -1,4 +1,5 @@
 ﻿using Eodg.MedicalTracker.Data.Models;
+using Eodg.MedicalTracker.Data.Models.ModelConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Eodg.MedicalTracker.Data
@@ -19,5 +20,10 @@ namespace Eodg.MedicalTracker.Data
         public DbSet<MemberSymptom> MemberSymptoms { get; set; }
         public DbSet<Symptom> Symptoms { get; set; }
         public DbSet<SymptomOccurrence> SymptomOccurences { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new DosageOccurrenceConfiguration());
+        }
     }
 }
