@@ -4,23 +4,23 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Eodg.MedicalTracker.Data.Models.ModelConfiguration
 {
-    public class DosageOccurrenceConfiguration : IEntityTypeConfiguration<DosageOccurrence>
+    public class SymptomOccurrenceConfiguration : IEntityTypeConfiguration<SymptomOccurrence>
     {
-        public void Configure(EntityTypeBuilder<DosageOccurrence> builder)
+        public void Configure(EntityTypeBuilder<SymptomOccurrence> builder)
         {
             builder.HasKey(d => d.Id);
 
             builder
-                .HasOne<MemberMedication>(d => d.MemberMedication)
-                .WithMany(m => m.DosageOccurrences)
-                .HasForeignKey(d => d.MemberMedicationId);
+                .HasOne<MemberSymptom>(d => d.MemberSymptom)
+                .WithMany(m => m.SymptomOccurrences)
+                .HasForeignKey(d => d.MemberSymptomId);
 
             builder
                 .Property(d => d.Id)
                 .IsRequired();
 
             builder
-                .Property(d => d.MemberMedicationId)
+                .Property(d => d.MemberSymptomId)
                 .IsRequired();
 
             builder

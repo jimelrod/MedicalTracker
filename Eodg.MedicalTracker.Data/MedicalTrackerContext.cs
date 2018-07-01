@@ -24,6 +24,13 @@ namespace Eodg.MedicalTracker.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new DosageOccurrenceConfiguration());
+            modelBuilder.ApplyConfiguration(new DoseMeasurementConfiguration());
+            modelBuilder.ApplyConfiguration(new MedicationConfiguration());
+            modelBuilder.ApplyConfiguration(new MemberConfiguration());
+            modelBuilder.ApplyConfiguration(new MemberMedicationConfiguration());
+            modelBuilder.ApplyConfiguration(new MemberSymptomConfiguration());
+            modelBuilder.ApplyConfiguration(new SymptomConfiguration());
+            modelBuilder.ApplyConfiguration(new SymptomOccurrenceConfiguration());
         }
     }
 }

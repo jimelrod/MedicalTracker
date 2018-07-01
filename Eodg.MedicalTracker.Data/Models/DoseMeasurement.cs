@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Eodg.MedicalTracker.Data.Models
 {
@@ -7,5 +8,7 @@ namespace Eodg.MedicalTracker.Data.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Abbreviation { get; set; }
+
+        public List<MemberMedication> MemberMedications { get; set; }
     }
 }
