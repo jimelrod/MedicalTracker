@@ -19,7 +19,7 @@ namespace Eodg.MedicalTracker.Data
         public DbSet<MemberMedication> MemberMedications { get; set; }
         public DbSet<MemberSymptom> MemberSymptoms { get; set; }
         public DbSet<Symptom> Symptoms { get; set; }
-        public DbSet<SymptomOccurrence> SymptomOccurences { get; set; }
+        public DbSet<SymptomOccurrence> SymptomOccurrences { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -23,9 +23,9 @@ namespace Eodg.MedicalTracker.Repositories
             private set { _medicalTrackerContext = value; }
         }
 
-        public virtual List<T> Get()
+        public virtual IQueryable<T> Get()
         {
-            return _medicalTrackerContext.Set<T>().ToList();
+            return _medicalTrackerContext.Set<T>();
         }
 
         public virtual T Get(Guid id)
@@ -33,22 +33,20 @@ namespace Eodg.MedicalTracker.Repositories
             return _medicalTrackerContext.Set<T>().Find(id);
         }
 
-        public virtual List<T> Get(Func<T, bool> whereClause)
+        public virtual IEnumerable<T> Get(Func<T, bool> whereClause)
         {
-            return _medicalTrackerContext.Set<T>().Where(whereClause).ToList();
+            return _medicalTrackerContext.Set<T>().Where(whereClause);
         }
 
-        public virtual List<T> Get(Func<T, bool> whereClause, Func<T, Guid> orderBy)
+        public virtual IOrderedEnumerable<T> Get(Func<T, bool> whereClause, Func<T, Guid> orderBy)
         {
-            return _medicalTrackerContext.Set<T>().Where(whereClause).OrderBy(orderBy).ToList();
+            return _medicalTrackerContext.Set<T>().Where(whereClause).OrderBy(orderBy);
         }
 
-        public virtual List<T> Get(Func<T, Guid> orderBy)
+        public virtual IOrderedEnumerable<T> Get(Func<T, Guid> orderBy)
         {
-            return _medicalTrackerContext.Set<T>().OrderBy(orderBy).ToList();
+            return _medicalTrackerContext.Set<T>().OrderBy(orderBy);
         }
-
-        // TODO: Pagination
 
         public virtual T Add(T entity)
         {
