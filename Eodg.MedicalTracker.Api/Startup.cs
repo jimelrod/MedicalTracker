@@ -1,9 +1,10 @@
-﻿using Eodg.MedicalTracker.Data;
+﻿using System;
+using System.Diagnostics;
+using Eodg.MedicalTracker.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,14 +21,13 @@ namespace Eodg.MedicalTracker.Api
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {    
+        {   
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<MedicalTrackerContext>(options => 
             {
-                var connectionString = Configuration.GetConnectionString("Default");
-                
-                options.UseSqlite(connectionString);
+                var connectionString = Environment.GetEnvironmentVariable("MedicalTrackerDbConnectionString");
+                options.UseSqlServer(connectionString);
             });
         }
 
