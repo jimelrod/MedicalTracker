@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Eodg.MedicalTracker.Data;
+using Eodg.MedicalTracker.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,8 @@ namespace Eodg.MedicalTracker.Api
                 var connectionString = Environment.GetEnvironmentVariable("MedicalTrackerDbConnectionString");
                 options.UseSqlServer(connectionString);
             });
+
+            // TODO: Add repo?
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

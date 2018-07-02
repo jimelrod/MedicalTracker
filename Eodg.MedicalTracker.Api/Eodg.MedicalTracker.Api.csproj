@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Eodg.MedicalTracker.Data\Eodg.MedicalTracker.Data.csproj" />
+    <ProjectReference Include="..\Eodg.MedicalTracker.Repositories\Eodg.MedicalTracker.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
